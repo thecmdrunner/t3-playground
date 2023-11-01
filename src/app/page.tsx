@@ -7,6 +7,7 @@ export default function Home() {
         <h1 className="flex flex-wrap items-center justify-center gap-2 text-center text-5xl font-extrabold tracking-tight sm:text-[5rem]">
           <span>Next.js 14 + Server </span>
           <span className="text-cyan-500">Actions</span>+{" "}
+          <span className="text-purple-500">Clerk</span>+{" "}
           <span className="text-orange-500">Tanstack</span> Query
         </h1>
 
