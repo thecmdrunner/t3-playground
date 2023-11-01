@@ -24,6 +24,7 @@ export const projects = mysqlTable(
     id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
     userId: varchar("userId", { length: 256 }),
     name: varchar("name", { length: 256 }),
+    description: varchar("description", { length: 512 }),
     createdAt: timestamp("createdAt")
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
