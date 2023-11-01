@@ -18,17 +18,19 @@ import {
  */
 export const mysqlTable = mysqlTableCreator((name) => `t3-playground_${name}`);
 
-export const posts = mysqlTable(
-  "post",
+export const projects = mysqlTable(
+  "projects",
   {
     id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
+    userId: varchar("userId", { length: 256 }),
     name: varchar("name", { length: 256 }),
-    createdAt: timestamp("created_at")
+    createdAt: timestamp("createdAt")
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
     updatedAt: timestamp("updatedAt").onUpdateNow(),
   },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.name),
-  })
+  (table) => ({
+    userIdIndex: index("user_id_idx").on(table.userId),
+    nameIndex: index("name_idx").on(table.name),
+  }),
 );
